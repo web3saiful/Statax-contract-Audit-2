@@ -21,6 +21,7 @@ contract Stratax is Initializable {
         UNWIND
     }
 
+
     /// @notice Parameters for opening a leveraged position via flash loan
     struct FlashLoanParams {
         /// @notice Address of the token used as collateral
@@ -316,7 +317,7 @@ contract Stratax is Initializable {
         uint256 _flashLoanAmount,
         uint256 _collateralAmount,
         address _borrowToken,
-        uint256 _borrowAmount,
+        uint256 _borrowAmount, 
         bytes calldata _oneInchSwapData,
         uint256 _minReturnAmount
     ) public onlyOwner {

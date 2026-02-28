@@ -60,7 +60,7 @@ contract StrataxOracle {
      * @return price which is has 8 decimals of precision
      * @dev Chainlink price feeds that do not have 8 decimals are not supported
      */
-
+// @audit
     function getPrice(address _token) public view returns (uint256 price) {
         address priceFeedAddress = priceFeeds[_token];
         require(priceFeedAddress != address(0), "Price feed not set for token");
@@ -106,6 +106,7 @@ contract StrataxOracle {
         AggregatorV3Interface priceFeed = AggregatorV3Interface(priceFeedAddress);
         (roundId, answer, startedAt, updatedAt, answeredInRound) = priceFeed.latestRoundData();
     }
+
 
     /**
      * @notice Transfers ownership of the contract
