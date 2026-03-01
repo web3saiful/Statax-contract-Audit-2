@@ -62,7 +62,7 @@ contract StrataxOracle {
      */
 // @audit
     function getPrice(address _token) public view returns (uint256 price) {
-        address priceFeedAddress = priceFeeds[_token];
+        address priceFeedAddress = priceFeeds[_token]; 
         require(priceFeedAddress != address(0), "Price feed not set for token");
 
         AggregatorV3Interface priceFeed = AggregatorV3Interface(priceFeedAddress);
