@@ -81,6 +81,7 @@ contract Stratax is Initializable {
     /// @notice Constant for basis points calculations (100% = 10000)
     uint256 public constant FLASHLOAN_FEE_PREC = 10000;
 
+
     /// @notice Precision used for price feeds (8 decimals)
     uint256 public constant PRICE_FEED_PREC = 1e8;
 
@@ -90,12 +91,14 @@ contract Stratax is Initializable {
     /// @notice Precision for leverage calculations (4 decimals, e.g., 30000 = 3x)
     uint256 public constant LEVERAGE_PRECISION = 1e4;
 
+
     /// @notice Safety margin for borrow calculations (9500 = 95% of max LTV)
     /// @dev This ensures positions have a healthy buffer and don't immediately risk liquidation
     uint256 public constant BORROW_SAFETY_MARGIN = 9500; // 95% of max
 
     /// @notice Aave lending pool interface for flash loans and lending operations
     IPool public aavePool;
+
 
     /// @notice Aave protocol data provider for querying reserve configurations
     IProtocolDataProvider public aaveDataProvider;
