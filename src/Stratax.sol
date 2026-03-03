@@ -21,7 +21,6 @@ contract Stratax is Initializable {
         UNWIND
     }
 
-
     /// @notice Parameters for opening a leveraged position via flash loan
     struct FlashLoanParams {
         /// @notice Address of the token used as collateral
@@ -94,7 +93,7 @@ contract Stratax is Initializable {
 
     /// @notice Safety margin for borrow calculations (9500 = 95% of max LTV)
     /// @dev This ensures positions have a healthy buffer and don't immediately risk liquidation
-    uint256 public constant BORROW_SAFETY_MARGIN = 9500; // 95% of max
+    uint256 public constant BORROW_SAFETY_MARGIN = 9500; // 95% of max  @audit-info  আপনার সম্পদ: ১০০ টাকা।Aave-এর সর্বোচ্চ লোন সীমা (৮০%): ৮০ টাকা।আপনার কোডের সেফটি মার্জিন(৯৫%): $৮০ \times ০.৯৫ = ৭৬$ টাকা।  অর্থাৎ, সিস্টেম আপনাকে ৭৬ টাকার বেশি ধার নিতে দেবে না এই ৪ টাকা (৮০ - ৭৬)
 
     /// @notice Aave lending pool interface for flash loans and lending operations
     IPool public aavePool;
