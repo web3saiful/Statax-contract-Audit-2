@@ -203,13 +203,13 @@ contract Stratax is Initializable {
      * @return bool Returns true if operation succeeds
      */
     function executeOperation(
-        address _asset,
+        address _asset,//@audit-info loan token
         uint256 _amount,
         uint256 _premium,
         address _initiator,
         bytes calldata _params
     ) external returns (bool) {
-        require(msg.sender == address(aavePool), "Caller must be Aave Pool");
+        require(msg.sender == address(aavePool), "Caller must be Aave Pool");//@audit-info just aavePool can call
         require(_initiator == address(this), "Initiator must be this contract");
 
         // Decode operation type

@@ -6,7 +6,7 @@ pragma solidity ^0.8.13;
 interface IPool {
     function FLASHLOAN_PREMIUM_TOTAL() external returns (uint128);
     function flashLoanSimple(
-        address receiverAddress,
+        address receiverAddress,//@audit-info address(this) must be the receiver of flash loan .which contract request for flasloan. flashLoanSimple will call executeOperation function of this contract
         address asset,
         uint256 amount,
         bytes calldata params,
